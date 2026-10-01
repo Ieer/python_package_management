@@ -1,0 +1,30 @@
+# Python environments and generated files
+.venv/
+.venv-*/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.offline-ui/
+build/
+dist/
+*.egg-info/
+src/**/__pycache__/
+
+# Local package caches
+.uv-cache/
+uv-autoinstall-test-*/
+
+# Offline wheelhouses, downloaded artifacts, and backups
+package311/
+bk/
+down/
+download/
+
+# Generated immutable release bundles
+release/
+发布包/
+*.partial

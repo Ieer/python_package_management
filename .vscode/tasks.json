@@ -1,0 +1,60 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "启动 Dash 管理界面",
+      "type": "shell",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": [
+        "${workspaceFolder}/offline_dashboard.py",
+        "--port",
+        "8050"
+      ],
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "运行离线单元测试",
+      "type": "shell",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_offline_*.py",
+        "-v"
+      ],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "安装所有离线工作区依赖 (UI & MCP)",
+      "type": "shell",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": [
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "--find-links",
+        "${workspaceFolder}/package311",
+        "--only-binary=:all:",
+        "-r",
+        "${workspaceFolder}/requirements-ui.txt",
+        "-r",
+        "${workspaceFolder}/requirements-mcp.txt"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}
